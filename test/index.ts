@@ -1,2 +1,2 @@
 export {expect, assert, should, use} from "chai";
-export * from "mocha-typescript";
+export {suite, test, timeout, retries} from "mocha-typescript";

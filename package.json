@@ -1,6 +1,6 @@
 {
   "name": "@hypertype/tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "test",
     "build"
   ],
-  "dependencies":  {
+  "dependencies": {
     "@types/chai": "^4.1.7",
     "chai": "^4.2.0",
     "mocha-typescript": "^1.1.17",

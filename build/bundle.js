@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
+const relative = process.argv[2] || './';
 const path = require('path');
 function root(file){
-    return path.join(__dirname, '../../../..',file);
+    return path.join(__dirname, '../../../..',relative, file);
 }
 
 const pkg = require(root('./package'));

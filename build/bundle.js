@@ -12,13 +12,16 @@ const webpack = require('webpack');
 const main = pkg.module;
 webpack({
     entry: {
-        index: root(main)
+        index: root(main),
+
     },
+    target: 'node',
     mode: 'development',
     devtool: 'source-map',
     externals: Object.keys(pkg.peerDependencies),
     output: {
         path: root('./dist/bundle'),
+        libraryTarget: 'umd'
     }
 }, (err, stats) => {
     console.log(stats.toString())

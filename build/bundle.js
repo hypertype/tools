@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-const pkg = require('./package');
 const path = require('path');
+function root(file){
+    return path.join(__dirname, '../../../..',file);
+}
+
+const pkg = require(root('./package'));
 const webpack = require('webpack');
 
-function root(file){
-    return path.join(__dirname, file);
-}
 
 const main = pkg.module;
 webpack({

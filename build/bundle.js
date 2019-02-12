@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const pkg = require('./package');
 const path = require('path');
 const webpack = require('webpack');

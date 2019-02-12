@@ -2,28 +2,27 @@
 
 const relative = process.argv[2] || './';
 const path = require('path');
-function root(file){
-    return path.join(__dirname, '../../../..',relative, file);
-}
-
-const pkg = require(root('./package'));
+const basePath = process.cwd();
 const webpack = require('webpack');
 
+const pkg = require(path.join(basePath, relative, './package'));
+const outputPath = path.join(basePath, relative, 'dist/bundle', relative);
 
 const main = pkg.module;
+console.log(basePath, relative, main)
 webpack({
     entry: {
-        index: root(main),
-
+        index: path.join(basePath, relative, main),
     },
     target: 'node',
     mode: 'development',
     devtool: 'source-map',
-    externals: Object.keys(pkg.peerDependencies),
+    externals: Object.keys(pkg.peerDependencies || []),
     output: {
-        path: root('./dist/bundle'),
+        path: outputPath,
         libraryTarget: 'umd'
     }
 }, (err, stats) => {
-    console.log(stats.toString())
+    console.warn(`bundle ${relative} to ${outputPath}`)
+    // console.log(stats.toString())
 });

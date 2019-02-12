@@ -1,8 +1,11 @@
 {
   "name": "@hypertype/tools",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "hypertype": "build/bundle.js"
+  },
   "scripts": {
     "deploy": "git add * && git commit -m version && npm version patch && npm publish --access public"
   },

@@ -15,6 +15,22 @@
     "test",
     "build"
   ],
+  "bundledDependencies": [
+    "@types/chai",
+    "@types/node",
+    "awesome-typescript-loader",
+    "chai",
+    "css-loader",
+    "html-webpack-plugin",
+    "less",
+    "less-loader",
+    "mocha-typescript",
+    "string-loader",
+    "ts-jest",
+    "tsconfig-paths-webpack-plugin",
+    "typescript",
+    "webpack"
+  ],
   "dependencies": {
     "@types/chai": "^4.1.7",
     "@types/node": "^11.11.3",

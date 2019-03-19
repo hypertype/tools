@@ -7,7 +7,7 @@
     "hypertype": "build/bin.js"
   },
   "scripts": {
-    "deploy": "git add * && git commit -m version && npm version patch && npm publish --access public"
+    "deploy": "npm version patch && npm publish --access public"
   },
   "author": "",
   "license": "ISC",

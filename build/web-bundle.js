@@ -4,7 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = ({html, index, publicPath})=>{
-    const prod = process.argv.filter(a => /prod/.test(a));
+    const prod = process.argv.filter(a => /--prod/.test(a)).length;
     const baseDir = process.cwd();
     const compiler = webpack({
         entry: {

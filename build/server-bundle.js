@@ -10,6 +10,7 @@ module.exports = ({html, index, publicPath, port, host}) => {
     const config = getConfig(index);
     const compiler = webpack({
         ...config,
+        externals: [],
         plugins: [
             new HtmlWebpackPlugin({
                 template: html,
@@ -31,7 +32,6 @@ module.exports = ({html, index, publicPath, port, host}) => {
             }
         },);
         server.listen(port, host, (err, stats) => {
-            console.log('builded');
         });
     }else {
         runCompiler(compiler)

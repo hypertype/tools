@@ -1,29 +1,29 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = () => {
-    const relative = process.argv[2] || './';
+module.exports = ({index}) => {
     const basePath = process.cwd();
 
-    const pkg = require(path.join(basePath, relative, './package'));
-    const outputPath = path.join(basePath, relative, 'dist/bundle', relative);
+    const pkg = require(path.join(basePath, './package'));
+    const outputPath = path.join(basePath, 'dist/bundle');
+    const prod = process.argv.filter(a => /--prod/.test(a)).length;
 
     const main = pkg.module;
-    console.log(basePath, relative, main);
+    console.log(basePath, main);
     webpack({
         entry: {
-            index: path.join(basePath, relative, main),
+            index: path.join(basePath, index),
         },
         target: 'node',
-        mode: 'development',
-        devtool: 'source-map',
+        mode: prod ? 'production' : 'development',
+        devtool: prod ? 'none' : 'source-map',
         externals: Object.keys(pkg.peerDependencies || []),
         output: {
             path: outputPath,
             libraryTarget: 'umd'
         }
     }, (err, stats) => {
-        console.warn(`bundle ${relative} to ${outputPath}`)
+        console.warn(`bundle to ${outputPath}`)
         // console.log(stats.toString())
     });
 }

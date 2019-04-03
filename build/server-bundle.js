@@ -11,6 +11,10 @@ module.exports = ({html, index, publicPath, port, host}) => {
     const compiler = webpack({
         ...config,
         externals: [],
+        output: {
+            ...config.output,
+            publicPath: publicPath
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 template: html,

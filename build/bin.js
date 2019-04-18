@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const bundle = require('./bundle');
 const webBundle = require('./web-bundle');
+const nodeBundle = require('./node-bundle');
 const workerBundle = require('./worker-bundle');
 const serverBundle = require('./server-bundle');
 const testBundle = require('./test');
@@ -28,7 +29,12 @@ if (process.argv.filter(t => t === 'web').length) {
     const pkg = require(path.join(basePath, './package'));
     const options = pkg.hypertype.test;
     testBundle(options);
-} else {
+} else if (process.argv.filter(t => t === 'node').length) {
+    const basePath = process.cwd();
+    const pkg = require(path.join(basePath, './package'));
+    const options = pkg.hypertype.node;
+    nodeBundle(options);
+}else {
     const basePath = process.cwd();
     const pkg = require(path.join(basePath, './package'));
     const options = pkg.hypertype.lib;

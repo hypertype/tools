@@ -8,8 +8,6 @@ module.exports = ({index}) => {
     const outputPath = path.join(basePath, 'dist/bundle');
     const prod = process.argv.filter(a => /--prod/.test(a)).length;
 
-    const main = pkg.module;
-    console.log(basePath, main);
     webpack({
         entry: {
             index: path.join(basePath, index),

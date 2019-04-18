@@ -1,4 +1,5 @@
 module.exports = function runCompiler(compiler) {
+    console.log('compiling...');
     if (process.argv.filter(t => /watch/.test(t)).length) {
         compiler.watch({}, (err, stats) => {
             const info = stats.toJson("minimal");
@@ -15,6 +16,7 @@ module.exports = function runCompiler(compiler) {
     } else {
         compiler.run((err, stats) => {
             if (err || stats.hasErrors()) {
+                console.log(stats.toString());
                 // Handle errors here
             }
             // Done processing

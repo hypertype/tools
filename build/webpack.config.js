@@ -3,11 +3,17 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const path = require('path');
 const merge = require('webpack-merge');
 
-module.exports = (index,output) => {
+module.exports = (index, output) => {
     const prod = process.argv.filter(a => /--prod/.test(a)).length;
     const baseDir = process.cwd();
     const pkg = require(path.join(baseDir, 'package.json'));
-    const cfg = require(path.join(baseDir, 'webpack.config.js'));
+    let cfg = {};
+    try {
+        cfg = require(path.join(baseDir, 'webpack.config.js'));
+        console.log(`use config override from ${path.join(baseDir, 'webpack.config.js')}`);
+    } catch (e) {
+
+    }
     return merge({
         entry: {
             index: index,

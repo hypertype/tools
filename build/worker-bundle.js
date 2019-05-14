@@ -12,7 +12,6 @@ module.exports = ({index, output}) => {
             worker: index
         },
         target: 'webworker',
-        externals: [],
         output: {
             path: path.join(baseDir, output || 'dist'),
             libraryTarget: 'umd'

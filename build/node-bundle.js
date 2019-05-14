@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const runCompiler = require('./run.compiler');
 const getConfig = require('./webpack.config');
 
-module.exports = ({index, output}) => {
+module.exports = ({index, output, target}) => {
     const baseDir = process.cwd();
-    const config = getConfig(index);
+    const config = getConfig(index,target);
     const compiler = webpack({
         ...config,
         target: 'node',
@@ -19,7 +19,7 @@ module.exports = ({index, output}) => {
             ...config.output,
             devtoolModuleFilenameTemplate: '[absolute-resource-path]',
             path: path.join(baseDir, output || 'dist'),
-            libraryTarget: 'global'
+            libraryTarget: 'umd'
         }
     });
     runCompiler(compiler)

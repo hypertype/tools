@@ -22,6 +22,7 @@ module.exports = ({html, index, publicPath, port, host}) => {
                     href: publicPath
                 }
             }),
+            ...config.plugins
         ],
     });
     if (process.argv.indexOf('run') >= 0) {

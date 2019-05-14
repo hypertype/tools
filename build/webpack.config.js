@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const path = require('path');
 const merge = require('webpack-merge');
 
-module.exports = (index, output) => {
+module.exports = (index, target) => {
     const prod = process.argv.filter(a => /--prod/.test(a)).length;
     const baseDir = process.cwd();
     const pkg = require(path.join(baseDir, 'package.json'));
@@ -19,7 +19,8 @@ module.exports = (index, output) => {
             index: index,
         },
         output: {
-            path: path.join(baseDir, output || 'dist'),
+            path: path.join(baseDir, 'dist'),
+            filename: target || "index.js"
         },
         target: 'web',
         node: {

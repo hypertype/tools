@@ -4,7 +4,8 @@ module.exports = function runCompiler(compiler) {
         compiler.watch({}, (err, stats) => {
             const info = stats.toJson("minimal");
             if (info.errors.length) {
-                console.error(info.errors);
+                console.error(stats.toString("minimal"));
+                return;
                 // Handle errors here
             }
             if (info.warnings.length) {

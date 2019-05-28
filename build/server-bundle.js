@@ -25,7 +25,8 @@ module.exports = ({html, index, publicPath, port, host}) => {
             ...config.plugins
         ],
     });
-    if (process.argv.indexOf('run') >= 0) {
+    if (process.argv.indexOf('--run') >= 0) {
+        console.log(`starting web server...`);
         const server = new devServer(compiler, {
             contentBase: path.join(baseDir, 'dist'),
             port: port,
@@ -37,6 +38,7 @@ module.exports = ({html, index, publicPath, port, host}) => {
             }
         },);
         server.listen(port, host, (err, stats) => {
+            console.log(`listen on ${host}:${port}`)
         });
     }else {
         runCompiler(compiler)

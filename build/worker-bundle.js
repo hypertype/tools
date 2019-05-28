@@ -11,6 +11,7 @@ module.exports = ({index, output}) => {
         entry: {
             worker: index
         },
+        externals: [],
         target: 'webworker',
         output: {
             path: path.join(baseDir, output || 'dist'),

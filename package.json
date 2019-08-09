@@ -27,7 +27,6 @@
     "mocha-typescript",
     "node-libs-browser",
     "string-loader",
-    "ts-jest",
     "tsconfig-paths-webpack-plugin",
     "typescript",
     "webpack",

@@ -15,7 +15,28 @@
     "test",
     "build"
   ],
-  "dependencies": {
+  "bundledDependencies": [
+    "@types/chai",
+    "@types/node",
+    "awesome-typescript-loader",
+    "chai",
+    "css-loader",
+    "html-webpack-plugin",
+    "less",
+    "less-loader",
+    "mocha-typescript",
+    "node-libs-browser",
+    "string-loader",
+    "ts-jest",
+    "tsconfig-paths-webpack-plugin",
+    "typescript",
+    "webpack",
+    "webpack-bundle-analyzer",
+    "webpack-dev-server",
+    "webpack-merge",
+    "jest"
+  ],
+  "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/node": "^11.11.3",
     "awesome-typescript-loader": "^5.2.1",
@@ -33,9 +54,7 @@
     "webpack": "^4.29.3",
     "webpack-bundle-analyzer": "^3.1.0",
     "webpack-dev-server": "^3.2.1",
-    "webpack-merge": "^4.2.1"
-  },
-  "devDependencies": {
+    "webpack-merge": "^4.2.1",
     "jest": "^24.1.0"
   }
 }

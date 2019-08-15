@@ -1,4 +1,5 @@
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin").TsconfigPathsPlugin;
+const tsLoader = require("awesome-typescript-loader");
+const TsconfigPathsPlugin = tsLoader.TsConfigPathsPlugin;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const merge = require('webpack-merge');
@@ -39,19 +40,22 @@ module.exports = (index, target) => {
                 })
             ],
         },
+        resolveLoader: {
+            modules: ['node_modules/@hypertype/tools/node_modules'],
+        },
         module: {
             rules: [
                 {
                     test: /\.less/,
-                    loader: [require('css-loader'), require('less-loader')],
+                    loader: [('css-loader'), ('less-loader')],
                 },
                 {
                     test: /\.html$/,
-                    loader: require('string-loader'),
+                    loader: 'string-loader',
                 },
                 {
                     test: /\.ts/,
-                    loader: require('awesome-typescript-loader')
+                    loader: 'awesome-typescript-loader'
                 },
             ]
         },

@@ -20,7 +20,7 @@ module.exports = (index, target) => {
         },
         output: {
             path: path.join(baseDir, 'dist'),
-            filename: target || "index.js"
+            filename: (target || "index.js")
         },
         target: 'web',
         node: {
@@ -43,15 +43,15 @@ module.exports = (index, target) => {
             rules: [
                 {
                     test: /\.less/,
-                    loader: ['css-loader', 'less-loader'],
+                    loader: [require('css-loader'), require('less-loader')],
                 },
                 {
                     test: /\.html$/,
-                    loader: 'string-loader',
+                    loader: require('string-loader'),
                 },
                 {
                     test: /\.ts/,
-                    loader: 'awesome-typescript-loader'
+                    loader: require('awesome-typescript-loader')
                 },
             ]
         },

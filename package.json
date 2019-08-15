@@ -28,14 +28,14 @@
     "webpack-bundle-analyzer",
     "webpack-dev-server",
     "webpack-merge",
-    "jest"
+    "jest",
+    "awesome-typescript-loader",
+    "typescript",
+    "less-loader",
+    "css-loader",
+    "string-loader"
   ],
   "dependencies": {
-    "typescript": "^3.3.3333",
-    "less-loader": "^4.1.0",
-    "css-loader": "^2.1.1",
-    "string-loader": "0.0.1",
-    "awesome-typescript-loader": "^5.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -50,6 +50,11 @@
     "webpack-bundle-analyzer": "^3.1.0",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "typescript": "^3.3.3333",
+    "less-loader": "^4.1.0",
+    "css-loader": "^2.1.1",
+    "string-loader": "0.0.1",
     "jest": "^24.1.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@hypertype/tools",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -35,8 +35,7 @@
     "css-loader",
     "string-loader"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/node": "^11.11.3",

@@ -34,7 +34,9 @@ module.exports = (index, target) => {
             extensions: ['.ts', '.js', '.html', '.json'],
             mainFields: prod ? ['main', 'module'] : ['module', 'main'],
             plugins: prod ? [] : [
-                new TsconfigPathsPlugin()
+                new TsconfigPathsPlugin({
+                    mainFields: prod ? ['main', 'module'] : ['module', 'main'],
+                })
             ],
         },
         module: {

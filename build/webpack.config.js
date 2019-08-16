@@ -33,7 +33,7 @@ module.exports = (index, target) => {
         externals: Object.keys(pkg.peerDependencies || []),
         resolve: {
             extensions: ['.ts', '.js', '.html', '.json'],
-            mainFields: prod ? ['main', 'module'] : ['module', 'main'],
+            mainFields: prod ? ['es6', 'main', 'module'] : ['module', 'es6', 'main'],
             plugins: prod ? [] : [
                 new TsconfigPathsPlugin({
                     mainFields: prod ? ['es6', 'main', 'module'] : ['module', 'es6', 'main'],

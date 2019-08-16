@@ -36,7 +36,7 @@ module.exports = (index, target) => {
             mainFields: prod ? ['main', 'module'] : ['module', 'main'],
             plugins: prod ? [] : [
                 new TsconfigPathsPlugin({
-                    mainFields: prod ? ['main', 'module'] : ['module', 'main'],
+                    mainFields: prod ? ['es6', 'main', 'module'] : ['module', 'es6', 'main'],
                 })
             ],
         },

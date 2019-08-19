@@ -15,6 +15,7 @@ module.exports = (index, target) => {
     } catch (e) {
 
     }
+    const mainEs = /es5/.test(target) ? 'es5' : 'es6';
     return merge({
         entry: {
             index: index,
@@ -33,10 +34,10 @@ module.exports = (index, target) => {
         externals: Object.keys(pkg.peerDependencies || []),
         resolve: {
             extensions: ['.ts', '.js', '.html', '.json'],
-            mainFields: prod ? ['es6', 'main', 'module'] : ['module', 'es6', 'main'],
+            mainFields: prod ? [mainEs, 'main', 'module'] : ['module', mainEs, 'main'],
             plugins: prod ? [] : [
                 new TsconfigPathsPlugin({
-                    mainFields: prod ? ['es6', 'main', 'module'] : ['module', 'es6', 'main'],
+                    mainFields: prod ? [mainEs, 'main', 'module'] : ['module', mainEs, 'main'],
                 })
             ],
         },

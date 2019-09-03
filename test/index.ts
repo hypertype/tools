@@ -1,12 +1,7 @@
-export {expect, assert, should, use} from "chai";
+import {expect, assert, should, use} from "chai";
+import {suite, test} from "@testdeck/jest";
 
-export function suite(target) {
-}
-
-export function test(target, key, descriptor) {
-    const instance = new target.constructor();
-    it(key, async () => {
-        await instance[key]();
-    });
-    return descriptor;
+export {
+    expect, assert, should, use,
+    suite, test
 }

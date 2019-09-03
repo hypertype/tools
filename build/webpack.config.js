@@ -13,9 +13,10 @@ module.exports = (index, target) => {
         cfg = require(path.join(baseDir, 'webpack.config.js'));
         console.log(`use config override from ${path.join(baseDir, 'webpack.config.js')}`);
     } catch (e) {
-
+        console.log(e);
     }
     const mainEs = /es5/.test(target) ? 'es5' : 'es6';
+    const moduleEs = /es5/.test(target) ? 'module' : 'module-es6';
     return merge({
         entry: {
             index: index,
@@ -34,15 +35,18 @@ module.exports = (index, target) => {
         externals: Object.keys(pkg.peerDependencies || []),
         resolve: {
             extensions: ['.ts', '.js', '.html', '.json'],
-            mainFields: prod ? [mainEs, 'main', 'module'] : ['module', mainEs, 'main'],
+            mainFields: prod ? [mainEs, 'main', moduleEs] : [moduleEs, mainEs, 'main'],
             plugins: prod ? [] : [
                 new TsconfigPathsPlugin({
-                    mainFields: prod ? [mainEs, 'main', 'module'] : ['module', mainEs, 'main'],
+                    mainFields: prod ? [mainEs, 'main', moduleEs] : [moduleEs, mainEs, 'main'],
                 })
             ],
         },
         resolveLoader: {
-            modules: ['node_modules/@hypertype/tools/node_modules'],
+            modules: [
+                'node_modules/@hypertype/tools/node_modules',
+                'node_modules'
+            ],
         },
         module: {
             rules: [

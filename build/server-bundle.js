@@ -5,9 +5,9 @@ const runCompiler = require('./run.compiler');
 const getConfig = require('./webpack.config');
 const devServer = require('webpack-dev-server');
 
-module.exports = ({html, index, publicPath, port, host}) => {
+module.exports = ({html, index, publicPath, port, host, output}) => {
     const baseDir = process.cwd();
-    const config = getConfig(index);
+    const config = getConfig(index, "index.js", output);
     const compiler = webpack({
         ...config,
         externals: [],

@@ -4,7 +4,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const path = require('path');
 const merge = require('webpack-merge');
 
-module.exports = (index, target) => {
+module.exports = (index, target, output) => {
     const prod = process.argv.filter(a => /--prod/.test(a)).length;
     const baseDir = process.cwd();
     const pkg = require(path.join(baseDir, 'package.json'));
@@ -13,7 +13,6 @@ module.exports = (index, target) => {
         cfg = require(path.join(baseDir, 'webpack.config.js'));
         console.log(`use config override from ${path.join(baseDir, 'webpack.config.js')}`);
     } catch (e) {
-        console.log(e);
     }
     const mainEs = /es5/.test(target) ? 'es5' : 'es6';
     const moduleEs = /es5/.test(target) ? 'module' : 'module-es6';
@@ -22,7 +21,7 @@ module.exports = (index, target) => {
             index: index,
         },
         output: {
-            path: path.join(baseDir, 'dist'),
+            path: path.join(baseDir, output || "dist"),
             filename: (target || "index.js")
         },
         target: 'web',

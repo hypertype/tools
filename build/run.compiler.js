@@ -1,5 +1,5 @@
 module.exports = function runCompiler(compiler) {
-    console.log('compiling...');
+    console.log(`compiling to ${compiler.options.output.path}`);
     if (process.argv.filter(t => /watch/.test(t)).length) {
         compiler.watch({}, (err, stats) => {
             const info = stats.toJson("minimal");
